@@ -1,76 +1,59 @@
-!DOCTYPE html>
+{% extends "base.html" %}
 
-{% load static %}
+{% block titulo %}
 
-<html>
+	Cartão | Nosso Café
 
-<head>
-	<meta charset="utf-8">
-	<title>{% block titulo %}Cadastro | Nosso Café{% endblock %}</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"> 
-	<link rel="stylesheet" href="{% static 'tema.css'%}">
-</head>
+{% endblock %}
 
-<body>
-	<div class="py-3 bg-dark"></div>
-	<div class="py-3 pt-5 pb-0" style="">
+{% block topo %}
+
+	<div class="py-5"></div>
+	<div class="py-2">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="display-2">Nosso Café</h1>
+					<h1 class="display-1">Nosso Café</h1>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="py-3" style="">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-					<form class="form-inline">
-						<div class="input-group">
-							<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search">
-							<div class="input-group-append"><button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button></div>
-						</div>
-					</form>
-				</div>
-				<div class="col-md-3">
-					<div class="btn-group">
-						<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filtrar por</button>
-						<div class="dropdown-menu"> <a class="dropdown-item" href="#">Menor preço</a><a class="dropdown-item" href="#">Maior preço</a><a class="dropdown-item" href="#">Mais populares</a>
-							<a class="dropdown-item" href="#">Mais novos</a></div>
-					</div>
-				</div>
-				<div class="col-md-3"><a class="btn btn-primary" href="#">&nbsp;<i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Meu carrinho</a></div>
-				<div class="col-md-3"><a class="btn btn-primary" href="#">&nbsp;<i class="fa fa-fw fa-home"></i>&nbsp;Home</a></div>
-			</div>
-		</div>
-	</div>
+{% endblock %}
+
+{% block conteudo %}
 
 	<div class="py-5">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<form class="">
-						<div class="form-group"> <label>Número de cartão</label> <input type="number" class="form-control" required="required" placeholder="0000 0000 0000 000 0"> </div>
+						<div class="form-group"> <label>Número de cartão</label> 
+
+							<input type="number" class="form-control" required="required" placeholder="0000 0000 0000 000 0"> 
+
+						</div>
 						<div class="form-group"><label>Data de Validade</label>
-							<div class="input-group"><input type="date" class="form-control" id="inlineFormInputGroup" required="required"></div>
+							<div class="input-group">
+
+								<input type="date" class="form-control" id="inlineFormInputGroup" required="required">
+
+							</div>
 						</div>
 						<div class="form-group"><label>CVV</label>
-							<div class="input-group"><input type="number" class="form-control" id="inlineFormInputGroup" placeholder="000"></div><small class="text-muted form-text">Não compartilharemos as suas informações de cartão</small>
+							<div class="input-group">
+
+								<input type="number" class="form-control" id="inlineFormInputGroup" placeholder="000">
+
+							</div><small class="text-muted form-text">Não compartilharemos as suas informações de cartão</small>
 						</div>
 					</form>
+
 					<button type="submit" class="btn btn-primary">Continuar</button>
+					
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-</body>
-
-</html>
+{% endblock %}

@@ -22,7 +22,13 @@ def inicial(request):
 	return render(request, 'inicial.html')
 
 def busca(request):
-	return render(request, 'busca.html')
+	produtora = 'nome da produtora'
+	valor = 123.45
+	context = {
+		'produtora' : produtora,
+		'valor' : valor,
+	}
+	return render(request, 'busca.html', context)
 
 def cadastro(request):
 	return render(request, 'cadastro.html')
@@ -31,7 +37,11 @@ def login(request):
 	return render(request, 'login.html')
 
 def produtora(request):
-	return render(request, 'produtora.html')
+	produtora = 'nome da produtora'
+	context = {
+		'produtora' : produtora,
+	}
+	return render(request, 'produtora.html', context)
 
 def cartao(request):
 	return render(request, 'cartao.html')

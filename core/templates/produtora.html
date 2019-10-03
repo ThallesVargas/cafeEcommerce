@@ -1,18 +1,14 @@
-!DOCTYPE html>
+{% extends "base.html" %}
 
-{% load static %}
+{% block titulo %}
 
-<html>
+	{{produtora}} | Nosso Café
 
-<head>
-	<meta charset="utf-8">
-	<title>{% block titulo %}Cadastro | Nosso Café{% endblock %}</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"> 
-	<link rel="stylesheet" href="{% static 'tema.css'%}">
-</head>
+{% endblock %}
 
-<body>
+
+{% block topo %}
+
 	<div class="py-3 bg-dark"></div>
 	<div class="py-3 pt-5 pb-0" style="">
 		<div class="container">
@@ -23,6 +19,10 @@
 			</div>
 		</div>
 	</div>
+
+{% endblock %}
+
+{% block mid %}
 
 	<div class="py-3" style="">
 		<div class="container">
@@ -37,22 +37,45 @@
 				</div>
 				<div class="col-md-3">
 					<div class="btn-group">
+
 						<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filtrar por</button>
-						<div class="dropdown-menu"> <a class="dropdown-item" href="#">Menor preço</a><a class="dropdown-item" href="#">Maior preço</a><a class="dropdown-item" href="#">Mais populares</a>
-							<a class="dropdown-item" href="#">Mais novos</a></div>
+
+						<div class="dropdown-menu">
+
+							<a class="dropdown-item" href="#">Menor preço</a>
+							
+							<a class="dropdown-item" href="#">Maior preço</a>
+
+							<a class="dropdown-item" href="#">Mais populares</a>
+
+							<a class="dropdown-item" href="#">Mais novos</a>
+
+						</div>
 					</div>
 				</div>
-				<div class="col-md-3"><a class="btn btn-primary" href="#">&nbsp;<i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Meu carrinho</a></div>
-				<div class="col-md-3"><a class="btn btn-primary" href="#">&nbsp;<i class="fa fa-fw fa-home"></i>&nbsp;Home</a></div>
+				<div class="col-md-3">
+
+					<a class="btn btn-primary" href="{% url 'carrinho' %}">&nbsp;<i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Meu carrinho</a>
+
+				</div>
+				<div class="col-md-3">
+
+					<a class="btn btn-primary" href="{% url 'home' %}">&nbsp;<i class="fa fa-fw fa-home"></i>&nbsp;Home</a>
+
+				</div>
 			</div>
 		</div>
 	</div>
+
+{% endblock %}
+
+{% block conteudo %}
 
 	<div class="py-2">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="display-4 border-top border-dark">Nome da Produtora</h1>
+					<h1 class="display-4 border-top border-dark">{{produtora | capfirst}}</h1>
 				</div>
 			</div>
 		</div>
@@ -72,8 +95,16 @@
 										<div class="col-md-3" style="">
 											<p class="lead">Preço: R$ valor</p>
 										</div>
-										<div class="col-md-4" style=""><a class="btn btn-outline-primary" href="#" contenteditable="true">Adicionar ao carrinho&nbsp;<i class="fa fa-shopping-cart fa-fw"></i> </a></div>
-										<div class="col-md-4" style=""><a class="btn btn-primary px-4" href="#">Comprar agora</a></div>
+										<div class="col-md-4" style="">
+
+											<a class="btn btn-outline-primary" href="#" contenteditable="true">Adicionar ao carrinho&nbsp;<i class="fa fa-shopping-cart fa-fw"></i> </a>
+
+										</div>
+										<div class="col-md-4" style="">
+
+											<a class="btn btn-primary px-4" href="#">Comprar agora</a>
+
+										</div>
 									</div>
 								</div>
 							</div>
@@ -84,10 +115,4 @@
 		</div>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-</body>
-
-</html>
+{% endblock %}
