@@ -1,0 +1,75 @@
+!DOCTYPE html>
+
+{% load static %}
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>{% block titulo %}Cadastro | Nosso Café{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"> 
+	<link rel="stylesheet" href="{% static 'tema.css'%}">
+</head>
+
+<body>
+	<div class="py-5"></div>
+	<div class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="display-1">Nosso Café</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12" style="">
+					<form class="form-inline">
+						<div class="form-group">
+							<input type="email" class="form-control w-75" id="inputmailinline" placeholder="E-mail"> </div>
+						<div class="form-group">
+							<input type="password" class="form-control w-75" id="inputpasswordinline" placeholder="Senha"> </div>
+						<button type="submit" class="btn btn-primary ">Entrar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="py-2">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12"><a class="btn btn-outline-dark" href="#">Não possui uma conta? Se inscreva!</a></div>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div class="py-3 border-dark">
+			<div class="container">
+				<div class="row border-top border-dark">
+					<div class="col-md-12 d-flex align-items-center justify-content-center my-3"> <a href="#">
+							<i class="d-block fa fa-facebook-official fa-lg mr-2 text-dark"></i>
+						</a> <a href="#">
+							<i class="d-block fa fa-instagram fa-lg mx-2 text-dark"></i>
+						</a> <a href="#">
+							<i class="d-block fa fa-twitter fa-lg ml-2 text-dark"></i>
+						</a> </div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<p class="mb-0">© 2019 Nosso Café. All rights reserved</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<div class="py-5"></div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

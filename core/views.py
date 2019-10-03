@@ -23,3 +23,15 @@ def inicial(request):
 
 def busca(request):
 	return render(request, 'busca.html')
+
+def cadastro(request):
+	return render(request, 'cadastro.html')
+
+def login(request):
+	return render(request, 'login.html')
+
+def produtora(request):
+	return render(request, 'produtora.html')
+
+def cartao(request):
+	return render(request, 'cartao.html')

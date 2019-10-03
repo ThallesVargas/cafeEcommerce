@@ -23,5 +23,9 @@ urlpatterns = [
 	path('carrinho/', views.carrinho, name='carrinho'),
 	path('busca/', views.busca, name='busca'),
 	path('', views.inicial, name='inicial'),
+	path('cadastro/', views.inicial, name='cadastro'),
+	path('login/', views.inicial, name='login'),
+	path('produtora/', views.inicial, name='produtora'),
+	path('cartao/', views.inicial, name='cartao'),
 	path('admin/', admin.site.urls),
 ]
