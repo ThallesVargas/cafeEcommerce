@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+	Carrinho | {{ block.super }}
+{% endblock %}
+
+{% block conteudo %}
+	<div class="container bg-light">
+		<div class="row">
+			<div class="col-md-3 p-2 rounded" style=""><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
+			<div class="col-md-3 py-3" style="">
+				<h6 class="py-3 align-items-center">Nome e especificação básica do produto</h6>
+			</div>
+			<div class="col-md-3 py-3" style="">
+				<div class="row">
+					<div class="col-md-12 align-items-center px-2"><a class="btn btn-primary align-items-center text-center" href="#">Quantidade: xN</a></div>
+				</div>
+			</div>
+			<div class="col-md-3 py-3" style="">
+				<h4 class="py-3 align-items-center">Preço:&nbsp;<br>R$ valor</h4>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block troca %}
+	<div class="col-md-4"><a class="btn btn-primary" href="{% url 'home' %}">Home</a>
+	</div> 
+{% endblock %}
+
