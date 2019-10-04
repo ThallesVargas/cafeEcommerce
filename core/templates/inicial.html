@@ -3,6 +3,11 @@
 {% block topo %}
 
 	<div class="py-5"></div>
+
+{% endblock %}
+
+{% block logo %}
+
 	<div class="py-2">
 		<div class="container">
 			<div class="row">
@@ -33,7 +38,7 @@
 
 				<div class="col-md-6"><a class="btn btn-primary align-items-center" href="{% url 'login' %}">Entrar com conta</a></div>
 
-				<div class="col-md-6"><a class="btn btn-outline-dark align-items-center" href="{% url 'home' %}">&nbsp;Entrar como covidado&nbsp;</a></div>
+				<div class="col-md-6"><a class="btn btn-outline-dark align-items-center" href="{% url 'home' %}">&nbsp;Entrar como visitante&nbsp;</a></div>
 				
 			</div>
 		</div>
