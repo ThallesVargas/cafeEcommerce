@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 
 	'core',
+	'catalog',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,8 @@ ALLOWED_HOSTS = ['*']
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 django_heroku.settings(locals())
+
+try:
+	from .local_settings import *
+except ImportError:
+	pass
