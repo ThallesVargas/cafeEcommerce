@@ -75,7 +75,11 @@
 								<div class="col-md-12">
 									<div class="row">
 										<div class="col-md-12" style="">
-											<h5 class="">{{produtora | capfirst}}</h5>
+											
+											<h5 class="">
+												{{produtora | capfirst}}
+											</h5>
+
 										</div>
 									</div>
 								</div>
@@ -84,17 +88,31 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
+							
 							<p class="lead">
 								{{texto}}
 							</p>
+							
 							<div class="row">
 								<div class="col-md-12">
 									<div class="row">
 										<div class="col-md-3" style="">
-											<p class="lead">Preço: R$ {{valor}}</p>
+											
+											<p class="lead">
+												Preço: R$ {{valor}}
+											</p>
+										
 										</div>
-										<div class="col-md-4" style=""><a class="btn btn-outline-primary" href="#" contenteditable="true">Adicionar ao carrinho&nbsp;<i class="fa fa-shopping-cart fa-fw"></i> </a></div>
-										<div class="col-md-4" style=""><a class="btn btn-primary px-4" href="#">Comprar agora</a></div>
+										<div class="col-md-4" style="">
+
+											<a class="btn btn-outline-primary" href="#" contenteditable="true">Adicionar ao carrinho&nbsp;<i class="fa fa-shopping-cart fa-fw"></i> </a>
+										
+										</div>
+										<div class="col-md-4" style="">
+
+											<a class="btn btn-primary px-4" href="#">Comprar agora</a>
+
+										</div>
 									</div>
 								</div>
 							</div>
@@ -103,9 +121,4 @@
 				</div>
 			</div>
 		</div>
-{% endblock %}
-
-{% block troca %}
-	<div class="col-md-4"><a class="btn btn-primary" href="{% url 'carrinho' %}">&nbsp;<i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Meu carrinho</a>
-	</div> 
 {% endblock %}

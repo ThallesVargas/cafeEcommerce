@@ -11,12 +11,20 @@ def index(request):
 	context = {
 		'produtora' : produtora, 
 		'texto' : texto,
-		'valor' : valor
+		'valor' : valor,
 	}
 	return render(request, 'index.html', context)
 
 def carrinho(request):
-	return render(request, 'carrinho.html')
+	info = 'Nome e especificação básica do produto'
+	n = 2
+	valor = 123.45
+	context = {
+		'info' : info,
+		'n' : n,
+		'valor' : valor,
+	}
+	return render(request, 'carrinho.html', context)
 
 def inicial(request):
 	return render(request, 'inicial.html')
@@ -37,9 +45,13 @@ def login(request):
 	return render(request, 'login.html')
 
 def produtora(request):
+	texto = 'Lead paragraph. A wonderful serenity has taken possessionof my entire soul.'
 	produtora = 'nome da produtora'
+	valor = 123.45
 	context = {
-		'produtora' : produtora,
+		'produtora' : produtora, 
+		'texto' : texto,
+		'valor' : valor,
 	}
 	return render(request, 'produtora.html', context)
 
