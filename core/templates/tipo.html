@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+	{{ tipo }} | {{ block.super }}
+{% endblock %}
+
+{% block topo %}
+
+	<div class="py-3 bg-dark"></div>
+
+{% endblock %}
+
+{% block logo %}
+
+	<div class="py-3 pt-5 pb-0" style="">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="display-2">Nosso Café </h1>
+					<h3 class="">Produtos tipo {{ tipo }}</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block mid %}
+
+	<div class="py-3" style="">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<form class="form-inline">
+						<div class="input-group">
+							<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search">
+							<div class="input-group-append"><button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button></div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-3">
+					<div class="btn-group">
+
+						<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filtrar por tipo</button>
+
+						<div class="dropdown-menu">
+							
+							{% for tipo in tipos %}
+
+								<a class="dropdown-item" href="{% url 'tipo' slug=tipo.slug %}">{{tipo}}</a>
+
+							{% endfor %}
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+
+					<a class="btn btn-primary" href="{% url 'carrinho' %}">&nbsp;<i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Meu carrinho</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block conteudo %}
+
+	{% for produto in produtos %}
+
+	<div class="py-3">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-4 px-5" style="">
+				<img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg">
+			</div>
+			<div class="col-md-8 rounded bg-light py-1 pt-3" style="">
+				<div class="row">
+					<div class="col-md-3" style="">
+						<h5 class="">Produto:</h5>
+					</div>
+					<div class="col-md-6" style="">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12" style="">
+										
+										<h5 class="">
+											<a href="#">{{produto.name | capfirst}}</a>
+										</h5>
+
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3" style="">
+						<h5 class="">Produtora:</h5>
+					</div>
+					<div class="col-md-6" style="">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12" style="">
+										
+										<h5 class="">
+											{{produto.producer | capfirst}}
+										</h5>
+
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						
+						<p class="lead">
+							Quantidade: {{produto.quant}} {{produto.medida}}
+						</p>
+
+						<p class="lead">
+							{{produto.description|linebreaks}}
+						</p>
+							
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-3" style="">
+										
+										<h5 class="">
+											Preço: R$ {{produto.price}}
+										</h5>
+										
+									</div>
+									<div class="col-md-4" style="">
+
+										<a class="btn btn-outline-primary" href="#" contenteditable="false">Adicionar ao carrinho&nbsp;<i class="fa fa-shopping-cart fa-fw"></i> </a>
+									
+									</div>
+									<div class="col-md-4" style="">
+
+										<a class="btn btn-primary px-4" href="#">Comprar agora</a>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	{% endfor %}
+
+{% endblock %}
