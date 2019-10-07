@@ -1,19 +1,25 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from catalog.models import Type, Product, Producer
 
 # Create your views here.
 
 def index(request):
-	texto = 'Lead paragraph. A wonderful serenity has taken possessionof my entire soul.'
-	produtora = 'nome da produtora'
-	valor = 123.45
 	context = {
-		'produtora' : produtora, 
-		'texto' : texto,
-		'valor' : valor,
+		'produtos': Product.objects.all(),
 	}
 	return render(request, 'index.html', context)
+
+def index_tipo(request, slug):
+	tipo = Type.objects.get(slug=slug)
+	context = {
+		'tipo': tipo,
+		'produtos': Product.objects.filter(tipo=tipo),
+	}
+	return render(request, 'tipo.html', context)
+
+
 
 def carrinho(request):
 	info = 'Nome e especificação básica do produto'

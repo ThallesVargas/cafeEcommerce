@@ -43,17 +43,15 @@
 				<div class="col-md-3">
 					<div class="btn-group">
 
-						<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filtrar por</button>
+						<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filtrar por tipo</button>
 
 						<div class="dropdown-menu">
 
-							<a class="dropdown-item" href="#">Menor preço</a>
-							
-							<a class="dropdown-item" href="#">Maior preço</a>
+							{% for tipo in tipos %}
 
-							<a class="dropdown-item" href="#">Mais populares</a>
+								<a class="dropdown-item" href="{% url 'tipo' slug=tipo.slug %}">{{tipo}}</a>
 
-							<a class="dropdown-item" href="#">Mais novos</a>
+							{% endfor %}
 
 						</div>
 					</div>

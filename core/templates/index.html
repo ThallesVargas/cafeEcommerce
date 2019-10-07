@@ -40,17 +40,15 @@
 				<div class="col-md-3">
 					<div class="btn-group">
 
-						<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filtrar por</button>
+						<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filtrar por tipo</button>
 
 						<div class="dropdown-menu">
-
-							<a class="dropdown-item" href="#">Menor preço</a>
 							
-							<a class="dropdown-item" href="#">Maior preço</a>
+							{% for tipo in tipos %}
 
-							<a class="dropdown-item" href="#">Mais populares</a>
+								<a class="dropdown-item" href="{% url 'tipo' slug=tipo.slug %}">{{tipo}}</a>
 
-							<a class="dropdown-item" href="#">Mais novos</a>
+							{% endfor %}
 
 						</div>
 					</div>
@@ -67,57 +65,87 @@
 {% endblock %}
 
 {% block conteudo %}
+
+	{% for produto in produtos %}
+
+	<div class="py-3">
 	<div class="container">
+
 		<div class="row">
-			<div class="col-md-4 px-5" style=""><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
-				<div class="col-md-8 rounded bg-light py-1 pt-3" style="">
-					<div class="row">
-						<div class="col-md-3" style="">
-							<h5 class="">Produtora:</h5>
-						</div>
-						<div class="col-md-6" style="">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="row">
-										<div class="col-md-12" style="">
-											
-											<h5 class="">
-												{{produtora | capfirst}}
-											</h5>
+			<div class="col-md-4 px-5" style="">
+				<img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg">
+			</div>
+			<div class="col-md-8 rounded bg-light py-1 pt-3" style="">
+				<div class="row">
+					<div class="col-md-3" style="">
+						<h5 class="">Produto:</h5>
+					</div>
+					<div class="col-md-6" style="">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12" style="">
+										
+										<h5 class="">
+											<a href="#">{{produto.name | capfirst}}</a>
+										</h5>
 
 										</div>
-									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-12">
-							
-							<p class="lead">
-								{{texto}}
-							</p>
-							
-							<div class="row">
-								<div class="col-md-12">
-									<div class="row">
-										<div class="col-md-3" style="">
-											
-											<p class="lead">
-												Preço: R$ {{valor}}
-											</p>
+				</div>
+				<div class="row">
+					<div class="col-md-3" style="">
+						<h5 class="">Produtora:</h5>
+					</div>
+					<div class="col-md-6" style="">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12" style="">
 										
-										</div>
-										<div class="col-md-4" style="">
+										<h5 class="">
+											{{produto.producer | capfirst}}
+										</h5>
 
-											<a class="btn btn-outline-primary" href="#" contenteditable="true">Adicionar ao carrinho&nbsp;<i class="fa fa-shopping-cart fa-fw"></i> </a>
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						
+						<p class="lead">
+							Quantidade: {{produto.quant}} {{produto.medida}}
+						</p>
+
+						<p class="lead">
+							{{produto.description|linebreaks}}
+						</p>
+							
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-3" style="">
 										
-										</div>
-										<div class="col-md-4" style="">
+										<h5 class="">
+											Preço: R$ {{produto.price}}
+										</h5>
+										
+									</div>
+									<div class="col-md-4" style="">
 
-											<a class="btn btn-primary px-4" href="#">Comprar agora</a>
+										<a class="btn btn-outline-primary" href="#" contenteditable="false">Adicionar ao carrinho&nbsp;<i class="fa fa-shopping-cart fa-fw"></i> </a>
+									
+									</div>
+									<div class="col-md-4" style="">
 
-										</div>
+										<a class="btn btn-primary px-4" href="#">Comprar agora</a>
+
 									</div>
 								</div>
 							</div>
@@ -126,4 +154,9 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	</div>
+
+	{% endfor %}
+
 {% endblock %}
