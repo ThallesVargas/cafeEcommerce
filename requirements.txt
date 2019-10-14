@@ -3,3 +3,5 @@ Django
 gunicorn
 psycopg2
 django-heroku
+model-mommy
+whitenoise

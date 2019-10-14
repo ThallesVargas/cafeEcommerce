@@ -63,3 +63,6 @@ def produtora(request):
 
 def cartao(request):
 	return render(request, 'cartao.html')
+
+def contato(request):
+	return render(request, 'faleconosco.html')

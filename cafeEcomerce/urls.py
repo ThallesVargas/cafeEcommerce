@@ -38,6 +38,8 @@ urlpatterns = [
 
 	re_path(r'^cartao/$', views_core.cartao, name='cartao'),
 
+	re_path(r'^contato/$', views_core.contato, name='contato'),
+
 	re_path(r'^admin/', admin.site.urls),
 
 ]
