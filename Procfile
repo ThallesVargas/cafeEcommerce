@@ -1,1 +1,1 @@
-web: gunicorn cafeEcomerce.wsgi --log-file - 
+web: gunicorn cafeEcomerce.wsgi --log-file -
