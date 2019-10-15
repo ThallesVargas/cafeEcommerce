@@ -42,19 +42,53 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<form class="">
+					<form class="" method="post" action="">
 
-						<div class="form-group"> <label>Nome Completo</label> <input type="text" class="form-control" placeholder="Seu Nome" required="required"> </div>
+                        {% csrf_token %}
 
-						<div class="form-group"> <label>Email&nbsp;</label> <input type="email" class="form-control" placeholder="exemplo@email.com" required="required"> </div>
+						<fieldset>
 
-						<div class="form-group" style=""> <label>Senha</label> <input type="password" class="form-control" placeholder="******" required="required"></div>
-						
-						<div class="form-group"><label>Confirme sua senha</label><input type="password" class="form-control" placeholder="******" required="required"></div>
+                            {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {{ error }}
+                            </div>
+                            {% endfor %}
 
-						<button type="submit" class="btn btn-primary">continuar</button>
+                            <div class="form-group">
+                                <label for="{{ form.username.auto_id }}" class="col-md-3 control-label">{{ form.username.label_tag }}</label>
+                                {{ form.username }}
+                                {% for error in form.username.errors %}
+                                    <div class="alert alert-danger">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                            </div>
 
-					</form>
+                            <div class="form-group">
+                                <label for="{{ form.password1.auto_id }}" class="col-md-3 control-label">{{ form.password1.label_tag }}</label>
+                                {{ form.password1 }}
+                                {% for error in form.password1.errors %}
+                                    <div class="alert alert-danger">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="{{ form.password2.auto_id }}" class="col-md-3 control-label">{{ form.password2.label_tag }}</label>
+                                {{ form.password2 }}
+                                {% for error in form.password2.errors %}
+                                    <div class="alert alert-danger">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+						<button type="submit" class="btn btn-primary" href=>Registrar</button>
+
+					    </fieldset>
+
+                    </form>
 				</div>
 			</div>
 		</div>

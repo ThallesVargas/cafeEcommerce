@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import re_path
 
 from core import views as views_core
+from core.views import RegistrarView
 
 from django.contrib.auth import views as auth_views
 from catalog import views as views_cat
@@ -32,7 +33,7 @@ urlpatterns = [
 
 	re_path(r'^busca/$', views_core.busca, name='busca'),
 
-	re_path(r'^cadastro/$', views_core.cadastro, name='cadastro'),
+	re_path(r'^cadastro/$', RegistrarView.as_view(), name='cadastro'),
 
 	re_path(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'),  name='login'),
 

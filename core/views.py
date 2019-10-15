@@ -3,10 +3,14 @@ from django.http import HttpResponse
 
 from catalog.models import Type, Product, Producer
 from .forms import FaleConosco
-from django.contrib.auth import authenticate, login
-
+from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import CreateView
+from django.urls import  reverse_lazy
 
 # Create your views here.
+
+User = get_user_model()
 
 def index(request):
 	context = {
@@ -21,8 +25,6 @@ def index_tipo(request, slug):
 		'produtos': Product.objects.filter(tipo=tipo),
 	}
 	return render(request, 'tipo.html', context)
-
-
 
 def carrinho(request):
 	info = 'Nome e especificação básica do produto'
@@ -47,9 +49,12 @@ def busca(request):
 	}
 	return render(request, 'busca.html', context)
 
-def cadastro(request):
-	return render(request, 'cadastro.html')
+class RegistrarView(CreateView):
 
+	form_class = UserCreationForm
+	template_name = 'cadastro.html'
+	model = User
+	success_url = reverse_lazy('login')
 
 def produtora(request):
 	texto = 'Lead paragraph. A wonderful serenity has taken possessionof my entire soul.'
