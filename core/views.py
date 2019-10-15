@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from catalog.models import Type, Product, Producer
+from .forms import FaleConosco
 
 # Create your views here.
 
@@ -65,4 +66,8 @@ def cartao(request):
 	return render(request, 'cartao.html')
 
 def contato(request):
-	return render(request, 'faleconosco.html')
+	form = FaleConosco()
+	context = {
+		'form': form
+	}
+	return render(request, 'faleconosco.html', context)
