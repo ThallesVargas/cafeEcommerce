@@ -3,6 +3,9 @@ from django.http import HttpResponse
 
 from catalog.models import Type, Product, Producer
 from .forms import FaleConosco
+from django.core.mail import send_mail
+from django.conf import settings
+
 
 # Create your views here.
 
@@ -66,8 +69,15 @@ def cartao(request):
 	return render(request, 'cartao.html')
 
 def contato(request):
-	form = FaleConosco()
+	success = False
+	form = FaleConosco(request.POST or None)
+
+	if form.is_valid():
+		form.send_mail()
+		success = True
+
 	context = {
-		'form': form
+		'form': form,
+		'success': success
 	}
 	return render(request, 'faleconosco.html', context)

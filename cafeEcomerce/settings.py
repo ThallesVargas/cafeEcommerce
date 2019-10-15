@@ -138,9 +138,12 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 django_heroku.settings(locals())
+
+EMAIL_HOST = 'SMTP.office365.com'
+EMAIL_HOST_USER = 'cafe-ecommerce@outlook.com'
+EMAIL_HOST_PASSWORD = 'cafe1234'
+DEFAULT_FROM_EMAIL = 'cafe-ecommerce@outlook.com'
 
 try:
 	from .local_settings import *
