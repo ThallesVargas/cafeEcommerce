@@ -36,7 +36,7 @@ urlpatterns = [
 
 	re_path(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'),  name='login'),
 
-	re_path(r'^sair/$', auth_views.LogoutView.as_view(template_name='index.html'), name='logout'),
+	re_path(r'^sair/$', auth_views.LogoutView.as_view(template_name='inicial.html'), name='logout'),
 
 	re_path(r'^produtora/$', views_core.produtora, name='produtora'),
 
