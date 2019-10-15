@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import re_path
 
 from core import views as views_core
+
+from django.contrib.auth import views as auth_views
 from catalog import views as views_cat
 
 urlpatterns = [
@@ -32,7 +34,9 @@ urlpatterns = [
 
 	re_path(r'^cadastro/$', views_core.cadastro, name='cadastro'),
 
-	re_path(r'^login/$', views_core.login, name='login'),
+	re_path(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'),  name='login'),
+
+	re_path(r'^sair/$', auth_views.LogoutView.as_view(template_name='index.html'), name='logout'),
 
 	re_path(r'^produtora/$', views_core.produtora, name='produtora'),
 

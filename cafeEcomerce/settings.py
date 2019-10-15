@@ -145,6 +145,10 @@ EMAIL_HOST_USER = 'cafe-ecommerce@outlook.com'
 EMAIL_HOST_PASSWORD = 'cafe1234'
 DEFAULT_FROM_EMAIL = 'cafe-ecommerce@outlook.com'
 
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+
+
 try:
 	from .local_settings import *
 except ImportError:

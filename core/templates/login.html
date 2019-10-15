@@ -32,17 +32,33 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12" style="">
-					<form class="form-inline">
+					<form class="form-inline" method="post" action="">
 
-						<div class="form-group">
-							<input type="email" class="form-control w-75" id="inputmailinline" placeholder="E-mail"> </div>
-							
-						<div class="form-group">
-							<input type="password" class="form-control w-75" id="inputpasswordinline" placeholder="Senha"> </div>
+                        {% csrf_token %}
+
+						<fieldset>
+
+                            {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {{ error }}
+                            </div>
+                            {% endfor %}
+
+                            <div class="form-group">
+                                <label for="{{ form.username.auto_id }}" class="col-md-3 control-label">{{ form.username.label_tag }}</label>
+                                {{ form.username }}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="{{ form.password.auto_id }}" class="col-md-3 control-label">{{ form.password.label_tag }}</label>
+                                {{ form.password }}
+                            </div>
 
 						<button type="submit" class="btn btn-primary" href=>Entrar</button>
 
-					</form>
+					    </fieldset>
+
+                    </form>
 				</div>
 			</div>
 		</div>

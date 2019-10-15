@@ -3,8 +3,7 @@ from django.http import HttpResponse
 
 from catalog.models import Type, Product, Producer
 from .forms import FaleConosco
-from django.core.mail import send_mail
-from django.conf import settings
+from django.contrib.auth import authenticate, login
 
 
 # Create your views here.
@@ -51,8 +50,6 @@ def busca(request):
 def cadastro(request):
 	return render(request, 'cadastro.html')
 
-def login(request):
-	return render(request, 'login.html')
 
 def produtora(request):
 	texto = 'Lead paragraph. A wonderful serenity has taken possessionof my entire soul.'
